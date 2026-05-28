@@ -4,26 +4,31 @@ import React from 'react';
 import { useI18n } from './provider';
 import { Language } from './types';
 
+const LANGUAGE_LABELS: Record<Language, string> = {
+  en: 'EN',
+  es: 'ES',
+  fr: 'FR',
+  zh: '中文',
+  ar: 'AR',
+  pt: 'PT',
+};
+
 export function LanguageSelector() {
-  const { language, setLanguage, isRTL } = useI18n();
-  const languages: Language[] = ['en', 'es', 'fr', 'zh', 'ar'];
+  const { language, setLanguage } = useI18n();
+  const languages = Object.keys(LANGUAGE_LABELS) as Language[];
 
   return (
-    <div className={`flex gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+    <select
+      value={language}
+      onChange={(e) => setLanguage(e.target.value as Language)}
+      aria-label="Select language"
+      className="bg-[#0a0a0a] border border-[#333333] text-[#777777] text-xs px-2 py-1 tracking-widest focus:outline-none focus:border-[#c9a962] hover:border-[#555555] transition-colors cursor-pointer"
+    >
       {languages.map((lang) => (
-        <button
-          key={lang}
-          onClick={() => setLanguage(lang)}
-          className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-            language === lang
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
-          }`}
-          aria-label={`Switch to ${lang}`}
-        >
-          {lang.toUpperCase()}
-        </button>
+        <option key={lang} value={lang}>
+          {LANGUAGE_LABELS[lang]}
+        </option>
       ))}
-    </div>
+    </select>
   );
 }

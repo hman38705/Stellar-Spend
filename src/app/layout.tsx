@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ToastContainer } from "@/components/Toast";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { I18nProvider } from "@/lib/i18n/provider";
+import { HtmlDirSync } from "@/components/HtmlDirSync";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -51,14 +53,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} font-ibm-plex-mono`}>
-        <ThemeProvider>
-          <ToastProvider>
-            <ErrorBoundary>
-              {children}
-            </ErrorBoundary>
-            <ToastContainer />
-          </ToastProvider>
-        </ThemeProvider>
+        <I18nProvider>
+          <HtmlDirSync />
+          <ThemeProvider>
+            <ToastProvider>
+              <ErrorBoundary>
+                {children}
+              </ErrorBoundary>
+              <ToastContainer />
+            </ToastProvider>
+          </ThemeProvider>
+        </I18nProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-export type Language = 'en' | 'es' | 'fr' | 'zh' | 'ar';
+export type Language = 'en' | 'es' | 'fr' | 'zh' | 'ar' | 'pt';
 
 export interface TranslationKeys {
   common: {

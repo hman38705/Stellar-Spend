@@ -128,6 +128,38 @@ export const zh: TranslationKeys = {
   },
 };
 
+export const pt: TranslationKeys = {
+  common: {
+    loading: 'Carregando...',
+    error: 'Erro',
+    success: 'Sucesso',
+    cancel: 'Cancelar',
+    submit: 'Enviar',
+    close: 'Fechar',
+  },
+  navigation: {
+    home: 'Início',
+    history: 'Histórico',
+    settings: 'Configurações',
+  },
+  offramp: {
+    title: 'Converter para Moeda Fiduciária',
+    enterAmount: 'Inserir Valor',
+    selectCurrency: 'Selecionar Moeda',
+    selectBank: 'Selecionar Banco',
+    accountNumber: 'Número da Conta',
+    estimatedTime: 'Tempo Estimado',
+    fees: 'Taxas',
+    total: 'Total',
+  },
+  errors: {
+    invalidAmount: 'Valor inválido',
+    insufficientBalance: 'Saldo insuficiente',
+    networkError: 'Erro de rede',
+    transactionFailed: 'Transação falhou',
+  },
+};
+
 export const ar: TranslationKeys = {
   common: {
     loading: 'جاري التحميل...',

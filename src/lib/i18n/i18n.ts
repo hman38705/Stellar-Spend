@@ -1,5 +1,5 @@
 import { Language, TranslationKeys } from './types';
-import { en, es, fr, zh, ar } from './translations';
+import { en, es, fr, zh, ar, pt } from './translations';
 
 const translations: Record<Language, TranslationKeys> = {
   en,
@@ -7,6 +7,7 @@ const translations: Record<Language, TranslationKeys> = {
   fr,
   zh,
   ar,
+  pt,
 };
 
 export class I18n {

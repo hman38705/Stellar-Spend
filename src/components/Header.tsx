@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { ThemeToggle } from "./ThemeToggle";
 import { CopyButton } from "./CopyButton";
 import { WalletModal } from "./WalletModal";
+import { LanguageSelector } from "@/lib/i18n/LanguageSelector";
 import { useFxRate } from "@/hooks/useFxRate";
 import type { WalletType } from "@/lib/stellar/wallet-adapter";
 
@@ -154,6 +155,7 @@ export function Header({
         {/* Right: wallet button + balances */}
         <div className="flex flex-col items-end gap-2 max-[720px]:items-start">
           <div className="flex items-center gap-2">
+            <LanguageSelector />
             <button
               onClick={onHelpOpen}
               aria-label="Open help"
